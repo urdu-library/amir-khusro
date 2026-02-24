@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دیوانِ امیر خسرو</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="دیوانِ امیر خسرو — مکمل مخطوطہ تصاویر کی صورت میں">
+<meta name="robots" content="index, follow">
+
+<style>
+body {
+    margin: 0;
+    background: #f4f4f4;
+    font-family: serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+.page {
+    margin-bottom: 25px;
+}
+
+.page img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>دیوانِ امیر خسرو</h1>
+    <div id="book"></div>
+</div>
+
+<script>
+const totalPages = 479;
+const book = document.getElementById("book");
+
+for (let i = 1; i <= totalPages; i++) {
+
+    // 001, 002, 010, 100 format
+    let pageNumber = String(i).padStart(3, '0');
+
+    let pageDiv = document.createElement("div");
+    pageDiv.className = "page";
+
+    let img = document.createElement("img");
+    img.src = pageNumber + ".webp";
+    img.alt = "صفحہ " + i;
+    img.loading = "lazy";
+
+    pageDiv.appendChild(img);
+    book.appendChild(pageDiv);
+}
+</script>
+
+</body>
+</html>
